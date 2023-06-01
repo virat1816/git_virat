@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR.4 Repetition Logic</title>
+</head>
+<body>
+    <!-- Give sequence 1, 2, 4, 8, 16, 32. -->
+</body>
+</html>
+<script>
+    // ======= for loop ========
+    document.write("==>for loop</br>");
+   let ans = "";
+   let a = 1;
+   for (let i = 0; i < 6; i++) {
+      ans += " " + a + " ,";
+      a *= 2;
+  }
+document.write(ans+"</br>");
+
+
+//    =====  with while loop   ========
+   let answer = "";
+   let b = 1;
+   let c = 0;
+
+  while (c < 6) {
+    answer += " " + b + " ,";
+    b *= 2;
+    c++;
+}
+   document.write("==>while loop</br>");
+   document.write(answer + "</br>");
+</script>

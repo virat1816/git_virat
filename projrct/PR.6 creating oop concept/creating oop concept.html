@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPs Concept</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // Constructor function
+    function BikeDetail(name, year, make) {
+      // This method
+      this.name = name;
+      this.year = year;
+      this.make = make;
+    }
+    
+    // Creating a bike object using the constructor function
+    const bike1 = new BikeDetail("ola S1 Pro", 2023, "ola S1 Pro");
+    bike1.type = "Electric";
+    
+    console.log("Bike's Name: ", bike1.name);
+    console.log("Year: ", bike1.year);
+    console.log("Make: ", bike1.make);
+    console.log("Type: ", bike1.type);
+    
+    // Object with accessor method
+    let bike2 = {
+      name: "ola s1 pro",
+      year: 2023,
+      make: "ola",
+      type: "Electric bike",
+      
+      // Using set keyword in object
+      set updateYear(value) {
+        this.year = value;
+      }
+    }
+    
+    // Updating the year using the accessor method
+    bike2.updateYear = 2022;
+    
+    // Before adding the property
+    console.log(bike2);
+    
+    // Adding a new property
+    bike2.features = "Long electric range, quick acceleration, advanced autopilot capabilities, minimalist interior design, and frequent software updates";
+    console.log(bike2); 
+  </script>
+</body>
+</html>

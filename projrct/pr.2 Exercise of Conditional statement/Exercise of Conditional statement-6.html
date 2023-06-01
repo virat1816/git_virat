@@ -1,0 +1,36 @@
+<script type="text/javascript">
+
+
+
+var physics = parseFloat(prompt("Enter marks obtained in Physics:"));
+var chemistry = parseFloat(prompt("Enter marks obtained in Chemistry:"));
+var biology = parseFloat(prompt("Enter marks obtained in Biology:"));
+var mathematics = parseFloat(prompt("Enter marks obtained in Mathematics:"));
+var computer = parseFloat(prompt("Enter marks obtained in Computer:"));
+
+
+var totalMarks = physics + chemistry + biology + mathematics + computer;
+var percentage = (totalMarks / 500) * 100;
+
+
+var grade;
+if (percentage >= 90) {
+  grade = "A";
+} else if (percentage >= 80) {
+  grade = "B";
+} else if (percentage >= 70) {
+  grade = "C";
+} else if (percentage >= 60) {
+  grade = "D";
+} else if (percentage >= 50) {
+  grade = "E";
+} else {
+  grade = "F";
+}
+
+// // Output results
+ document.write("<h1>Total Marks:- </h1>" + totalMarks + "\n");
+ document.write("<h1>Percentage:- </h1>" + percentage.toFixed(2) + "%\n");
+ document.write("<h1>Grade:- </h1>" + grade);
+
+</script>

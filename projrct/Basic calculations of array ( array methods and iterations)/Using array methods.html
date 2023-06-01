@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Array Method</title>
+</head>
+
+<body>
+
+    <div id="output"></div>
+
+    <script>
+        // Basic calculations with array
+        const numbers = [2, 4, 6, 8, 10];
+
+        //=====================Array Method=====================//
+
+        //1.using Array length
+        document.getElementById("output").innerHTML += "Length: " + numbers.length + "<br> <br>" ;
+
+        //2.using Array tostring
+        document.getElementById("output").innerHTML += "Converted to string: " + numbers.toString() + "<br> <br>" ;
+
+        //3.using Array pop
+        document.getElementById("output").innerHTML += "Popped value: " + numbers.pop() + "<br> <br>" ;
+        document.getElementById("output").innerHTML += "Array pop: " + numbers + "<br> <br>" ;
+
+        //4.using Array push
+        numbers.push(12);
+        document.getElementById("output").innerHTML += "Array push: " + numbers + "<br> <br>" ;
+
+        //5.using Array shift
+        document.getElementById("output").innerHTML += "Shifted value: " + numbers.shift() + "<br> <br>" ;
+        document.getElementById("output").innerHTML += "Array shift: " + numbers + "<br> <br>" ;
+
+        //6.using Array unshift
+        numbers.unshift(0);
+        document.getElementById("output").innerHTML += "Array unshift: " + numbers + "<br> <br>" ;
+
+        //7.using Array slice
+        const slicedArray = numbers.slice(1, 4);
+        document.getElementById("output").innerHTML += "Sliced array: " + slicedArray + "<br> <br>" ;
+
+        //8.using Array delete
+        delete numbers[2];
+        document.getElementById("output").innerHTML += "Array delete: " + numbers + "<br> <br>" ;
+
+        //9.using Array reverse
+        document.getElementById("output").innerHTML += "Reversed array: " + numbers.reverse() + "<br> <br>" ;
+    </script>
+
+</body>
+
+</html>

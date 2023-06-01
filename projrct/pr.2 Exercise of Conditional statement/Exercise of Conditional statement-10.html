@@ -1,0 +1,39 @@
+
+<script type="text/javascript">
+
+
+
+
+var a = parseFloat(prompt("Enter first number:"));
+var b = parseFloat(prompt("Enter second number:"));
+var operator = prompt("Select an operation (+, -, *, /):");
+
+
+var result;
+switch (operator) {
+
+  case "+":
+    result = a + b;
+    break;
+
+  case "-":
+    result = a - b;
+    break;
+
+  case "*":
+    result = a * b;
+    break;
+
+  case "/":
+    result = a / b;
+    break;
+
+  default:
+    result = "Invalid operator";
+
+}
+
+
+document.write("Ans = " + result);
+
+</script> 

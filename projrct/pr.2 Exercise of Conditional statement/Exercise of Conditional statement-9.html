@@ -1,0 +1,22 @@
+<script>
+    var a = parseInt(prompt("Enter first value:"));
+    var b = parseInt(prompt("Enter second value:"));
+    var c = parseInt(prompt("Enter third value:"));
+    var d = parseInt(prompt("Enter fourth value:"));
+    if(a>b && (a>c && a>d)){
+        document.write("First value: "+a+ " is biggest");
+    }
+    else{
+        if(b>a && (b>c && b>d)){
+        document.write("Second value: "+b+ " is biggest");
+        }
+        else{
+            if(c>a && (c>b && c>d)){
+                document.write("Third value: "+c+ " is biggest");
+            }
+            else{
+                document.write("Fourth value: "+d+ " is biggest");
+            }
+        }
+    }
+</script>
