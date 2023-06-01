@@ -1,0 +1,54 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Onchange Event </title>
+</head>
+<body>
+  <label for="color-select">Select a color:</label>
+  <select id="color-select" onchange="changeColor()">
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+  </select>
+  
+  <script>
+    function changeColor() {
+      var colorSelect = document.getElementById("color-select");
+      var selectedColor = colorSelect.value;
+      
+      // Perform actions based on the selected color
+      if (selectedColor === "red") {
+        document.body.style.backgroundColor = "red";
+      } else if (selectedColor === "blue") {
+        document.body.style.backgroundColor = "blue";
+      } else if (selectedColor === "green") {
+        document.body.style.backgroundColor = "green";
+      }
+    }
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>onchange Event Example</title>
+</head>
+
+<body>
+    <h3>Select a fruit:</h3>
+    <select id="mySelect" onchange="Change()">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="orange">Orange</option>
+    </select>
+</body>
+<script>
+    function Change() {
+        var selectElement = document.getElementById("mySelect");
+        var selectedValue = selectElement.value;
+        console.log("Selected value: " + selectedValue);
+    }
+</script>
+
+</html>

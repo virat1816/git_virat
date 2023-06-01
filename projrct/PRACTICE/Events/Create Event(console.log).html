@@ -1,0 +1,64 @@
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create the event</title>
+</head>
+
+<body>
+  <h3 id="ans"></h3>
+  <button onclick="function_main()">Click IT!!</button>
+
+  <script>
+    function function_main() {
+      function function_1(a, b) {
+        let addition = a + b; //(3+4=7) 
+        console.log(addition); // Ans 7
+        
+
+        function function_2(a) {
+          let subtraction = a - 1; //(7-1=6)
+          console.log(subtraction); //Ans 6
+
+          function function_3(a) {
+            let multiplication = a * 2; //(6*2=12)
+            console.log(multiplication); //Ans 12
+
+            function function_4(a) {
+              let division = a / 2; //(12/2=6)
+              console.log(division); //Ans 6
+
+              function function_5(a) {
+                let modulus = a % 2; //(6%2=0)
+                console.log(modulus); //Ans 0
+
+                function function_6(a, b, c, d) {
+                  let addition = a + b + c + d; //(7+6+12+6=31)
+                  console.log(addition); //Ans 31
+                }
+                let addition = 7;
+                let subtraction = 6;
+                let multiplication = 12;
+                let division = 6;
+
+                function_6(addition, subtraction, multiplication, division);
+            
+              }
+              function_5(division);
+            }
+            function_4(multiplication);
+          }
+          function_3(subtraction);
+        }
+        function_2(addition);
+      }
+      function_1(3, 4);
+    }
+  </script>
+</body>
+
+</html> -->
+

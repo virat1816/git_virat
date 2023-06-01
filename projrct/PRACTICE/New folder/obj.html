@@ -1,0 +1,67 @@
+<table border="1">
+    <tr>
+        <td>Name</td>
+        <td>Email</td>
+        <td>Password</td>
+    </tr>
+    <tbody id="record">
+
+    </tbody>
+
+</table>
+
+<script type="text/javascript">
+    //obj
+   let data = [
+        {
+            name : "jenish",
+            email : "jenish@gmail.com",
+            password : "1234"
+        },
+        {
+            name : "kishan",
+            email : "kishan@gmail.com",
+            password : "5678"
+        },
+        {
+            name : "ashish",
+            email : "ashish@gmail.com",
+            password : "9999"
+        }
+   ]
+   console.log(data);
+    let tbl = "";
+    // data.map((val)=>{
+    //    tbl += `
+    //                 <tr>
+    //                     <td>${val.name}</td>
+    //                     <td>${val.email}</td>
+    //                     <td>${val.password}</td>
+    //                 </tr>
+    //             `
+    // })
+
+    // document.getElementById('record').innerHTML = tbl;
+
+    // for(let i in data){
+    //     tbl += `
+    //                 <tr>
+    //                     <td>${data[i].name}</td>
+    //                     <td>${data[i].email}</td>
+    //                     <td>${data[i].password}</td>
+    //                 </tr>
+    //             `
+    // }
+    // document.getElementById('record').innerHTML = tbl;
+    data.forEach((val)=>{
+       tbl += `
+                    <tr>
+                        <td>${val.name}</td>
+                        <td>${val.email}</td>
+                        <td>${val.password}</td>
+                    </tr>
+                `
+    })
+
+    document.getElementById('record').innerHTML = tbl;
+</script>

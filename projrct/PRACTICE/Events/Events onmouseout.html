@@ -1,0 +1,46 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>onmouseover Event</title>
+  <script>
+    function handleMouseOver() {
+      var element = document.getElementById("myElement");
+      element.style.backgroundColor = "red";
+      element.innerHTML = "Mouse is over!";
+    }
+
+    function handleMouseOut() {
+      var element = document.getElementById("myElement");
+      element.style.backgroundColor = "";
+      element.innerHTML = "Mouse is out!";
+    }
+  </script>
+  <style>
+    #myElement {
+      width: 300px;
+      height: 300px;
+      background-color: rgb(106, 218, 255);
+      text-align: center;
+      line-height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div id="myElement" onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">Mouse is out!</div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>onmouseover Event</title>
+  <script>
+    function handleMouseOver(element) {
+      console.log("Mouse over: " + element.innerText);
+      // Perform any desired actions when the mouse is over the element
+    }
+  </script>
+</head>
+<body>
+  <h1 onmouseover="handleMouseOver(this)">Hover over me!</h1>
+</body>
+</html>

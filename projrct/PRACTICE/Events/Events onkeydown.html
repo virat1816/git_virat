@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>onkeydown Event Example</title>
+</head>
+<body>
+  <h1>Press a key</h1>
+  
+  <script>
+    function handleKeyDown(event) {
+      // Get the key code of the pressed key
+      var keyCode = event.keyCode || event.which;
+      
+      // Display the key code
+      alert("Key code: " + keyCode);
+    }
+    
+    // Attach the event listener to the document
+    document.onkeydown = handleKeyDown;
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>onkeydown Event</title>
+  <script>
+    function handleKeyDown(event) {
+      // Check the keyCode of the event
+      if (event.keyCode === 13) {
+        // Display an alert when the Enter key is pressed
+        alert("Enter key pressed!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Press Enter key</h1>
+  <input type="text" onkeydown="handleKeyDown(event)">
+</body>
+</html>

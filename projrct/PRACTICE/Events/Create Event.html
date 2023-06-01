@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create the event</title>
+</head>
+
+<body>
+  <h3 id="ans"></h3>
+  <button onclick="function_main()">Click IT!!</button>
+
+  <script>
+    function function_main() {
+      function function_1(a, b) {
+        let addition = a + b; //(3+4=7)
+        document.getElementById("ans").innerHTML = "<h2>Addition: </h2>" + addition;
+
+        function function_2(a) {
+          let subtraction = a - 1; //(7-1=6)
+          document.getElementById("ans").innerHTML += "<br> <h2>Subtraction: </h2>" + subtraction;
+
+          function function_3(a) {
+            let multiplication = a * 2; //(6*2=12)
+            document.getElementById("ans").innerHTML += "<br> <h2>Multiplication: </h2>" + multiplication;
+
+            function function_4(a) {
+              let division = a / 2; //(12/2=6)
+              document.getElementById("ans").innerHTML += "<br> <h2>Division: </h2>" + division;
+
+              function function_5(a) {
+                let modulus = a % 2; //(6%2=0)
+                document.getElementById("ans").innerHTML += "<br> <h2>Modulus: </h2>" + modulus;
+
+                function function_6(a, b) {
+                  let sum = addition + subtraction; // 7 + 6 = 13
+                  document.getElementById("ans").innerHTML += "<h3>Sum of Addition and Subtraction is: " + sum + "</h3>";
+
+                  function function_7(a, b, c) { // a, b, c are addition
+                    let cube = addition * addition * addition; // 7 * 7 * 7 = 343
+                    document.getElementById("ans").innerHTML += "<h3>Cube of Addition is: " + cube + "</h3>";
+
+                    // New function
+                    function function_8(a, b) { // a and b are subtraction
+                      let square = subtraction * subtraction; // 6 * 6 = 36
+                      document.getElementById("ans").innerHTML += "<h3>Square of Subtraction is: " + square + "</h3>";
+
+                      // New function
+                      function function_9(a, b) { // a is square and b is addition
+                        let total = square + addition; // 36 + 7 = 43
+                        document.getElementById("ans").innerHTML += "<h3>Total of Square and Addition is: " + total + "</h3>";
+
+                        // New function
+                        function function_10() {
+                          document.getElementById('ans').innerHTML = display;
+                        }
+                        function_10();
+                      }
+                      function_9(square, addition);
+                    }
+                    function_8(subtraction, subtraction);
+                  }
+                  function_7(addition, addition, addition);
+                }
+                function_6(addition, subtraction);
+              }
+              function_5(division);
+            }
+            function_4(multiplication);
+          }
+          function_3(subtraction);
+        }
+        function_2(addition);
+      }
+      function_1(3, 4);
+    }
+  </script>
+</body>
+
+</html>
