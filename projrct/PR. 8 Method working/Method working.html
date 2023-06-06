@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method working</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      body {
+    background-color: #bbc2c9;
+}
+
+span{
+    color: red;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #222020;
+    border-radius: 5px;
+    background-color: #eaefee;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input[type="text"], .form-group input[type="email"], .form-group input[type="password"], .form-group input[type="tel"],     .form-group textarea{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #2d2c2c;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #161515;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="date"] {
+    padding: 5px;
+    border: 1px solid #222121;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+      <h2>REGISTER FORM</h2>
+      
+      <form>
+        
+        <div class="form-group">
+          <label for="fname" class="form-label">First Name</label>
+          <input type="text" id="fname" autocomplete="fname" placeholder="Enter your first name" class="form-control">
+          <span id="fname-error" class="error"></span>
+        </div>
+        
+        
+        <div class="form-group">
+          <label for="lname" class="form-label">Last Name</label>
+          <input type="text" id="lname" autocomplete="lname" placeholder="Enter your last name" class="form-control">
+          <span id="lname-error" class="error"></span>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" autocomplete="email" placeholder="Enter your email" class="form-control">
+          <span id="email-error" class="error"></span>
+        </div>
+        
+        <div class="form-group">
+          <label for="dob">Date of Birth:<br></label>
+          <input type="date" id="dob" autocomplete="dob" name="dob" required>
+        </div>
+     
+        <div class="form-group">
+          <label for="male">Gender</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+            <label class="form-check-label" for="male">Male</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+            <label class="form-check-label" for="female">Female</label>
+          </div>
+        </div>
+            
+        <div class="form-group">
+          <label for="mobile">Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="Enter your mobile number" autocomplete="mobile" maxlength="10" required>
+          <span id="mobile-error" class="error"></span>
+        </div>
+      
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter your password" class="form-control">
+          <span id="password-error" class="error"></span>
+        </div>
+      
+        <button type="button" onclick="validation()" class="btn btn-primary">Register</button>
+      
+      </form>
+    </div>
+
+    <table class="table table-secondary mt-5">
+      <thead>
+        <tr class="text-center text-capitalize">
+          <th>Full name</th>
+          <th>date of birth</th>
+          <th>email</th>
+          <th>contact No</th>
+          <th>gender</th>
+        </tr>
+      </thead>
+      <tbody id="record" class="text-center"></tbody>
+    </table>
+    
+    <table class="table table-secondary table-striped">
+      <h3 class="mt-5 text-uppercase text-center">DOB after 2000</h3>
+      <thead>
+        <tr class="text-center text-capitalize">
+          <th>Full name</th>
+          <th>date of birth</th>
+          <th>email</th>
+          <th>contact No</th>
+          <th>gender</th>
+        </tr>
+      </thead>
+      <tbody id="dobfilter" class="text-center"></tbody>
+    </table>
+      
+    
+<script>
+  var userlog = [];
+
+// field validation
+const fnameInput = document.getElementById("fname");
+const lnameInput = document.getElementById("lname");
+const emailInput = document.getElementById("email");
+const mobileInput = document.getElementById("mobile");
+const passwordInput = document.getElementById("password");
+const fnameError = document.getElementById("fname-error");
+const lnameError = document.getElementById("lname-error");
+const emailError = document.getElementById("email-error");
+const mobileError = document.getElementById("mobile-error");
+const passwordError = document.getElementById("password-error");
+
+function validateFname(fname) {
+  const nameRegex = /^[a-zA-Z0-9][a-zA-Z0-9_]{3,29}$/gm;
+  return nameRegex.test(fname);
+}
+
+function validateLname(lname) {
+  const nameRegex = /^[a-zA-Z0-9][a-zA-Z0-9_]{3,29}$/gm;
+  return nameRegex.test(lname);
+}
+
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function validateMobile(mobile) {
+  const mobileRegex = /^\d{10}$/;
+  return mobileRegex.test(mobile);
+}
+
+function validatePassword(password) {
+ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9",;&|']).{8,15}$/;
+  return passwordRegex.test(password);
+}
+
+fnameInput.addEventListener("input", function () {
+  const fname = fnameInput.value;
+  if (validateFname(fname)) {
+    fnameError.textContent = ""; 
+  }
+  else {
+    fnameError.textContent = "Invalid name format";
+  }
+});
+
+lnameInput.addEventListener("input", function () {
+  const lname = lnameInput.value;
+  if (validateLname(lname)) {
+    lnameError.textContent = ""; 
+  }
+  else {
+    lnameError.textContent = "Invalid last name format";
+  }
+});
+
+emailInput.addEventListener("input", function () {
+  const email = emailInput.value;
+  if (validateEmail(email)) {
+    emailError.textContent = "";
+  }
+  else {
+    emailError.textContent = "Invalid email format";
+  }
+});
+
+mobileInput.addEventListener("input", function () {
+  const mobile = mobileInput.value;
+  if (validateMobile(mobile)) {
+    mobileError.textContent = ""; 
+  }
+  else {
+    mobileError.textContent = "Invalid phone format";
+  }
+});
+
+passwordInput.addEventListener("input", function () {
+  const password = passwordInput.value;
+  if (validatePassword(password)) {
+    passwordError.textContent = ""; 
+  }
+  else {
+    passwordError.textContent = "Password must be 8-15 characters long, have at least one uppercase letter, one lowercase letter, one number, and one special character (excluding \", ;, &, |, ').";
+  }
+});
+
+function validation() {
+  try {
+    let fname = document.getElementById("fname").value;
+    let lname = document.getElementById("lname").value;
+    let email = document.getElementById("email").value;
+    let mobile = document.getElementById("mobile").value;
+    let gender = document.querySelector('input[name="gender"]:checked').value;
+    let dob = document.getElementById("dob").value;
+    let password = document.getElementById("password").value;
+
+    if (
+      validateFname(fname) &&
+      validateLname(lname) &&
+      validateEmail(email) &&
+      validateMobile(mobile) &&
+      validatePassword(password)
+    ) {
+      let dateString = dob;
+      let dateParts = dateString.split("-");
+      let year = parseInt(dateParts[0]);
+      let month = parseInt(dateParts[1]);
+      let day = parseInt(dateParts[2]);
+
+      let date = {
+        day: day,
+        month: month,
+        year: year
+      };
+
+      let obj = {
+        name: fname.concat(" ", lname),
+        phone: mobile,
+        email: email,
+        date_of_birth: date,
+        gender: gender,
+        password: password
+      };
+
+      if (!localStorage.getItem("store")) {
+        userlog.push(obj);
+        localStorage.setItem("store", JSON.stringify(userlog));
+      }
+      else {
+        let stored = JSON.parse(localStorage.getItem("store"));
+        stored.push(obj);
+        localStorage.setItem("store", JSON.stringify(stored));
+      }
+      document.getElementById("fname").value = "";
+      document.getElementById("lname").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("dob").value = "";
+      document.getElementById("mobile").value = "";
+      document.getElementById("password").value = "";
+
+      viewData();
+      dobFilterData();
+    }
+  }
+  catch (error) {
+    console.log("An error occurred:", error);
+  }
+}
+
+function viewData() {
+  let tbl = "";
+  let storedata = JSON.parse(localStorage.getItem("store"));
+  storedata.map((val) => {
+    tbl += `
+      <tr>
+        <td>${val.name}</td>
+        <td>${val.date_of_birth.day}-${val.date_of_birth.month}-${val.date_of_birth.year}</td>
+        <td>${val.email}</td>
+        <td>${val.phone}</td>
+        <td>${val.gender}</td>
+      </tr>
+    `;
+  });
+  document.getElementById("record").innerHTML = tbl;
+}
+
+function dobFilterData() {
+  let tbl = "";
+  let storedata = JSON.parse(localStorage.getItem("store"));
+  let dobdata = storedata.filter((val, index) => {
+    return val.date_of_birth.year >= 2000;
+  });
+  dobdata.map((val) => {
+    tbl += `
+      <tr>
+        <td>${val.name}</td>
+        <td>${val.date_of_birth.day}-${val.date_of_birth.month}-${val.date_of_birth.year}</td>
+        <td>${val.email}</td>
+        <td>${val.phone}</td>
+        <td>${val.gender}</td>
+      </tr>
+    `;
+  });
+  document.getElementById("dobfilter").innerHTML = tbl;
+}
+</script>
+</body>
+</html>
