@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Working With Dom</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      .form-container {
+        max-width: 400px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container label {
+        display: block;
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      .form-container input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+
+      .form-container button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .form-container button:hover {
+        background-color: #0d0a0a;
+      }
+
+      .event-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+
+      .event-list li {
+        background-color: #d4d1d1;
+        padding: 10px;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        color: #000000;
+      }
+
+      .event-list li:hover {
+        background-color: #e1e1e1;
+      }
+
+      .event-list li span {
+        font-weight: bold;
+      }
+
+      .event-list li button {
+        float: right;
+        background-color: #ccc;
+        border: none;
+        padding: 5px;
+        color: #9e9595;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .event-list li button:hover {
+        background-color: #412929;
+        color: #fff;
+      }
+
+      .event-list li::before {
+        content: "📍";
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Event Form</h1>
+      <label for="event-input">Event:</label>
+      <input type="text" id="event-input" />
+      <button id="add-event-button">Add Event</button>
+      <hr />
+      <h2>Event List</h2>
+      <ul id="event-list" class="event-list"></ul>
+      <hr />
+      <label for="index-input">Remove Event:</label>
+      <input type="text" id="index-input" />
+      <button id="remove-event-button">Remove Event</button>
+      <hr />
+      <button id="clear-button">Clear localStorage</button>
+    </div>
+
+    <script>
+      function addEventListeners() {
+  const addButton = document.getElementById('add-event-button');
+  addButton.addEventListener('click', addEvent);
+
+  const removeButton = document.getElementById('remove-event-button');
+  removeButton.addEventListener('click', removeEvent);
+
+  const clearButton = document.getElementById('clear-button');
+  clearButton.addEventListener('click', clearLocalStorage);
+}
+
+function addEvent() {
+  const eventInput = document.getElementById('event-input');
+  const event = eventInput.value;
+
+  let events = localStorage.getItem('events');
+  events = events ? JSON.parse(events) : [];
+
+  events.push(event);
+
+  localStorage.setItem('events', JSON.stringify(events));
+
+  eventInput.value = '';
+
+  refreshEventList();
+}
+
+function removeEvent() {
+  const indexInput = document.getElementById('index-input');
+  const index = parseInt(indexInput.value, 10);
+
+  let events = localStorage.getItem('events');
+  events = events ? JSON.parse(events) : [];
+
+  if (index >= 0 && index < events.length) {
+    events.splice(index, 1);
+  }
+
+  localStorage.setItem('events', JSON.stringify(events));
+  indexInput.value = '';
+
+  refreshEventList();
+}
+
+function clearLocalStorage() {
+  localStorage.removeItem('events');
+  refreshEventList();
+}
+
+async function fetchEvents() {
+  try {
+    const response = await fetch('');
+    const data = await response.json();
+
+    localStorage.setItem('events', JSON.stringify(data));
+
+    refreshEventList();
+  } catch (error) {
+    console.log('Error fetching events:', error);
+  }
+}
+
+function refreshEventList() {
+  const eventList = document.getElementById('event-list');
+
+  eventList.innerHTML = '';
+
+  let events = localStorage.getItem('events');
+  events = events ? JSON.parse(events) : [];
+
+  events.map((event, index) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = `${index}: ${event}`;
+    eventList.appendChild(listItem);
+  });
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  addEventListeners();
+  refreshEventList();
+});
+    </script>
+  </body>
+</html>
