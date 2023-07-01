@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INR (test)</title>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="tip.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="header">Tip Calculator</h1>
+        <div class="input-group">
+            <label for="bill" class="input-label">Bill (₹)</label>
+            <div class="input-box">
+                <span>₹</span>
+                <input type="number" value="0.00" id="bill" class="input-value">
+            </div>
+        </div>
+        <div class="output-group">
+            <span class="output-label">Tip (₹)</span>
+            <span id="tip-amount" class="output-value">₹0</span>
+        </div>
+        <hr>
+        <div class="output-group">
+            <span class="output-label">Total Amount (₹)</span>
+            <span id="total-amount" class="output-value">₹0</span>
+        </div>
+        <hr>
+        <div class="input-group">
+            <label for="tip" class="input-label">Tip %</label>
+            <span id="tip-percent" class="input-value">0%</span>
+        </div>
+        <input type="range" min="1" id="tip" value="15">
+        <div class="input-group">
+            <label for="no-of-people" class="input-label">No. Of People</label>
+            <span id="split-num" class="input-value">0</span>
+        </div>
+        <input type="range" min="1" max="15" id="no-of-people" value="1">
+        <hr>
+        <div class="output-group">
+            <span class="output-label">Tip Per Person (₹)</span>
+            <span id="tip-per-person" class="output-value">₹0</span>
+        </div>
+        <div class="output-group">
+            <span class="output-label">Total Per Person (₹)</span>
+            <span id="total-per-person" class="output-value">₹0</span>
+        </div>
+    </div>
+    <script src="tip.js"></script>
+</body>
+
+</html>
+ 
