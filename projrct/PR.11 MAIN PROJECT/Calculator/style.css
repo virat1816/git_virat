@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500;600;700;800;900&family=Markazi+Text:wght@400;500;600;700&family=Sassy+Frass&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(24, 24, 24);
+}
+
+.wrapper {
+    max-width: max-content !important;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.letcontainer {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+button {
+    height: 60px;
+    margin: 10px 5px;
+    font-size: 18px;
+    font-weight: 900;
+    font-family: 'Kanit', sans-serif;
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+button:hover {
+    background-color: rgb(247, 244, 244);
+}
+
+button:focus {
+    outline: none;
+}
+
+.color-ac {
+    background-color: rgba(207, 67, 67, 1);
+}
+
+.color-ac:hover {
+    background-color: rgba(207, 67, 67, 0.8);
+}
+
+.color-back {
+    background-color: rgba(235, 169, 27, 1);
+}
+
+.color-back:hover {
+    background-color: rgba(235, 169, 27, 0.8);
+}
+
+.color-modulo {
+    background-color: rgba(81, 81, 81, 1);
+}
+
+.color-modulo:hover {
+    background-color: rgba(81, 81, 81, 0.8);
+}
+
+.color-divide {
+    background-color: rgba(250, 140, 6, 1);
+}
+
+.color-divide:hover {
+    background-color: rgba(250, 140, 6, 0.8);
+}
+
+.color-digit {
+    background-color: rgb(255, 255, 255);
+}
+
+.color-digit:hover {
+    background-color: rgba(241, 241, 241, 0.8);
+}
+
+.color-operator {
+    background-color: rgba(0, 123, 255, 1);
+}
+
+.color-operator:hover {
+    background-color: rgba(0, 123, 255, 0.8);
+}
+
+#inval {
+    text-align: end;
+    color: white !important;
+    font-size: 50px !important;
+    background-color: transparent !important;
+    border: none;
+    font-family: 'Kanit';
+    font-weight: 400;
+    z-index: 2;
+}
+
+#show {
+    text-align: end;
+    color: white !important;
+    font-size: 25px !important;
+    background-color: transparent !important;
+    border: none;
+    font-family: 'Kanit';
+    font-weight: 400;
+}
+
+.message {
+    position: relative;
+    z-index: 1;
+}
+
+marquee {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    text-transform: uppercase;
+    z-index: -1;
+}
